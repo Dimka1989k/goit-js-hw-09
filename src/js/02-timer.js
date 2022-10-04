@@ -19,11 +19,10 @@ function convertMs(ms) {
   const hour = minute * 60;
   const day = hour * 24;
 
-  // Remaining days
   const days = pad(Math.floor(ms / day));
-  // Remaining hours
+
   const hours = pad(Math.floor((ms % day) / hour));
-  // Remaining minutes
+
   const minutes = pad(Math.floor(((ms % day) % hour) / minute));
   // Remaining seconds
   const seconds = pad(Math.floor((((ms % day) % hour) % minute) / second));
@@ -79,7 +78,7 @@ class Timer {
       hoursEl.textContent = components.hours;
       daysEl.textContent = components.days;
       if (deltaTime <= 0) {
-        this.stop();
+        this.timerStop();
         timerDiv.innerHTML = 'Time is over!';
       }
     }, 1000);
